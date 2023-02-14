@@ -30,31 +30,43 @@
         music.stopMelody(MelodyStopOptions.All)
     }
 */
-
+//Možnosti dimenze a logu 
 input.setAccelerometerRange(AcceleratorRange.TwoG)
-let x = 0
-let y = 0
-let z = 0
-
-basic.forever(function() {
-
-x = input.acceleration(Dimension.X)
-y = input.acceleration(Dimension.Y)
-z = input.acceleration(Dimension.Z)
-
-console.logValue("x", x)
-console.logValue("y", y)
-console.logValue("z", z)
-
-  if (x ) {
-      
-  }  
+datalogger.setColumnTitles("accelX", "accelY", "accelZ")
 
 
+basic.forever(function () {
+//Proměnné 
 
+//Proměnné - ukládání hodnot z dimenzí
+let x = datalogger.createCV("accelX",input.acceleration(Dimension.X))
+let y = datalogger.createCV("accelY", input.acceleration(Dimension.Y))
+let z = datalogger.createCV("accelZ", input.acceleration(Dimension.Z))
+         
+//Proměnné - hodnoty dimenzí          
+let A = input.acceleration(Dimension.X)
+let B = input.acceleration(Dimension.Y)
+let C = input.acceleration(Dimension.Z)
+            
+   
+    console.logValue("x", A)
+    console.logValue("y", B)
+    console.logValue("z", C)
 
-basic.pause(150)
+/*
+Díky tomuto se ty data ukládají a ukazují nám.
+Akorát bacha, trochu se to pak seká :D
+
+    datalogger.log(x, y, z)
+*/
+    
+    
 })
+//
+
+
+
+ 
 
 
 
