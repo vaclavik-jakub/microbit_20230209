@@ -56,11 +56,13 @@ let C = input.acceleration(Dimension.Z)
 /*
 Díky tomuto se ty data ukládají a ukazují nám.
 Akorát bacha, trochu se to pak seká :D
-
-    datalogger.log(x, y, z)
 */
-    
-    
+
+    for (let i = 0; i < 5; i++) {
+        datalogger.log(x, y, z)
+        basic.pause(1000)
+        i++
+    }
 })
 //
 
